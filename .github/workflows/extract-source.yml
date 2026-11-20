@@ -1,5 +1,5 @@
 
-name: Extract Default Gradle
+name: Import PlusClient Libraries
 
 on:
   workflow_dispatch:
@@ -8,57 +8,92 @@ permissions:
   contents: write
 
 jobs:
-  extract:
+  import:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install 7-Zip
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y p7zip-full
-
-      - name: Download default.gradle.7z
+      - name: Download libs.zip
+        shell: bash
         run: |
           set -euo pipefail
 
           API="https://api.github.com/repos/kokobashka-alt/Plusclient-recode/releases/tags/1.0"
 
           URL=$(curl -fsSL "$API" | jq -r \
-            '.assets[] | select(.name == "default.gradle.7z") | .browser_download_url' | head -n 1)
+            '.assets[] | select(.name == "libs.zip") | .browser_download_url' | head -n 1)
 
           if [ -z "$URL" ] || [ "$URL" = "null" ]; then
-            echo "Archive not found"
+            echo "ERROR: libs.zip not found in Release 1.0"
             exit 1
           fi
 
-          curl -fL "$URL" -o default.gradle.7z
+          curl -fL "$URL" -o libs.zip
+          test -s libs.zip
 
-      - name: Extract archive
+      - name: Verify ZIP
         run: |
+          unzip -t libs.zip
+
+      - name: Extract libraries
+        shell: bash
+        run: |
+          set -euo pipefail
+
           mkdir extracted
-          7z x default.gradle.7z -oextracted -y
+          unzip -q libs.zip -d extracted
+
+          echo "Archive structure:"
           find extracted -maxdepth 5 -print
 
-      - name: Copy Gradle files
+      - name: Locate libs directory
+        shell: bash
         run: |
-          cp -a extracted/. .
-          rm -rf extracted default.gradle.7z
+          set -euo pipefail
 
-      - name: Commit to GitHub
+          mapfile -t DIRS < <(find extracted -type d -name libs)
+
+          if [ "${#DIRS[@]}" -ne 1 ]; then
+            echo "ERROR: Expected exactly one libs directory"
+            find extracted -maxdepth 5 -print
+            exit 1
+          fi
+
+          echo "LIBS_DIR=${DIRS[0]}" >> "$GITHUB_ENV"
+
+      - name: Copy libraries
         run: |
+          set -euo pipefail
+
+          rm -rf libs
+          mkdir -p libs
+          cp -a "$LIBS_DIR/." libs/
+
+          echo "Imported libraries:"
+          find libs -maxdepth 4 -type f -print
+
+          if [ ! -f libs/fabric-loader-0.19.2.jar ]; then
+            echo "ERROR: fabric-loader-0.19.2.jar is missing"
+            exit 1
+          fi
+
+      - name: Commit and push
+        shell: bash
+        run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -A
+          git add -A libs/
 
           if git diff --cached --quiet; then
-            echo "No changes"
+            echo "No changes to commit"
             exit 0
           fi
 
-          git commit -m "Import default Gradle configuration"
+          git commit -m "Import PlusClient libraries"
           git push
           
