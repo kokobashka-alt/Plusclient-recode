@@ -162,7 +162,7 @@ public class EntityESP extends Module {
    private final BooleanSetting au = new BooleanSetting("Животные", true);
    private final BooleanSetting av = new BooleanSetting("Предметы", true);
    private final MultiSetting aw = new MultiSetting("Отображать", this.as, this.at, this.au, this.av);
-   private final ModeSetting ax = new ModeSetting("Стиль", "Aspect", "Aspect", "Minecraft");
+   private final ModeSetting ax = new ModeSetting("Стиль", "Plus", "Plus", "Minecraft");
    private final ModeSetting ay = new ModeSetting(
       "Бокс",
       "Нет",
