@@ -1,0 +1,136 @@
+plugins {
+    id 'fabric-loom' version '1.15.5'
+}
+
+version = '1.0.0'
+group = 'dev.leg1tka'
+
+repositories {
+    exclusiveContent {
+        forRepository {
+            ivy {
+                name = 'providedFabricLoader'
+                url = uri('libs')
+                patternLayout { artifact '[artifact]-[revision](-[classifier]).[ext]' }
+                metadataSources { artifact() }
+            }
+        }
+        filter { includeModule('net.fabricmc', 'fabric-loader') }
+    }
+    mavenCentral()
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.21.4"
+    mappings "net.fabricmc:yarn:1.21.4+build.8:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.19.2"
+    modImplementation files("libs/fabric-api-0.112.2+1.21.4.jar")
+    modImplementation fileTree(dir: "libs/fabric-api-components", include: ["*.jar"])
+    compileOnly "org.projectlombok:lombok:1.18.34"
+    annotationProcessor "org.projectlombok:lombok:1.18.34"
+    modCompileOnly files("src/main/resources/META-INF/jars/baritone-api-fabric-1.13.1.jar")
+    // Loom does not add nested dependencies of this local mod to the development classpath.
+    runtimeOnly files("libs/nether-pathfinder-1.4.1.jar")
+    modRuntimeOnly files("src/main/resources/META-INF/jars/baritone-api-fabric-1.13.1.jar")
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/aspectdlc.accesswidener")
+    runs {
+        client {
+            programArgs '--username', 'tmereadysrs'
+            ideConfigGenerated = false
+        }
+        sourcePreview {
+            client()
+            programArgs '--username', 'tmereadysrs'
+            runDir 'run-source-preview'
+        }
+    }
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+    options.release = 21
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+processResources {
+    inputs.property "version", project.version
+    filteringCharset "UTF-8"
+}
+
+sourceSets {
+    verification {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+
+// A dependency-free JVM check; it does not load or execute protected native libraries.
+tasks.register('verifyNativeAvailability', JavaExec) {
+    dependsOn verificationClasses
+    classpath = sourceSets.verification.runtimeClasspath
+    mainClass = 'dev.leg1tka.recovery.NativeComponentsTest'
+}
+check.dependsOn verifyNativeAvailability
+
+sourceSets {
+    buildTools { java.srcDir 'src/buildTools/java' }
+}
+dependencies {
+    buildToolsImplementation fileTree(dir: 'libs/build-tools', include: ['*.jar'])
+}
+tasks.register('nativeCompatibilityJar', JavaExec) {
+    dependsOn remapJar, buildToolsClasses
+    classpath = sourceSets.buildTools.runtimeClasspath
+    mainClass = 'dev.leg1tka.build.NativeAbiAssembler'
+    args tasks.named('remapJar').get().archiveFile.get().asFile.absolutePath,
+         layout.buildDirectory.file("libs/${project.name}-${project.version}-original-abi.jar").get().asFile.absolutePath,
+         file('mappings/original-abi.json').absolutePath,
+         file('mappings/recovery-symbols.tiny').absolutePath
+}
+build.dependsOn nativeCompatibilityJar
+
+// Do not substitute a stale or modified global-cache loader for the supplied binary.
+tasks.register('verifyProvidedLoader') {
+    inputs.file('libs/fabric-loader-0.19.2.jar')
+    doLast {
+        def checksum = { candidate ->
+            java.security.MessageDigest.getInstance('SHA-256').digest(candidate.bytes).encodeHex().toString()
+        }
+        def expected = checksum(file('libs/fabric-loader-0.19.2.jar'))
+        def loaders = sourceSets.main.runtimeClasspath.files.findAll { it.name == 'fabric-loader-0.19.2.jar' }
+        if (loaders.empty || loaders.any { checksum(it) != expected }) {
+            throw new GradleException('The runtime Fabric Loader does not match the provided client binary')
+        }
+    }
+}
+check.dependsOn verifyProvidedLoader
+
+// The protected implementation cannot run in Loom's ordinary Java source-preview VM.
+def nativeClientDirectory = layout.buildDirectory.dir('native-client')
+tasks.register('prepareNativeClient', JavaExec) {
+    dependsOn nativeCompatibilityJar
+    classpath = sourceSets.buildTools.runtimeClasspath
+    mainClass = 'dev.leg1tka.build.PrepareNativeClient'
+    args providers.gradleProperty('originalClientDir').getOrElse('../Aspect Offline 1.21.4 Portable'),
+         nativeClientDirectory.get().asFile.absolutePath,
+         layout.buildDirectory.file("libs/${project.name}-${project.version}-original-abi.jar").get().asFile.absolutePath
+}
+tasks.register('runNativeClient', Exec) {
+    dependsOn prepareNativeClient
+    workingDir nativeClientDirectory
+    commandLine nativeClientDirectory.get().file('launcher/vm-host.exe').asFile.absolutePath,
+         nativeClientDirectory.get().dir('runtime/bin').asFile.absolutePath,
+         'launcher/vm-options.txt', 'launcher/game-args.txt'
+}
+
+// runClient retains Loom's Java launch; runNativeClient is an explicit alternative.
