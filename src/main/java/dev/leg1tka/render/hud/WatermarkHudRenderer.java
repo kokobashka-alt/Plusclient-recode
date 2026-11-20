@@ -123,7 +123,7 @@ public class WatermarkHudRenderer extends dev.leg1tka.render.hud.HudRenderer {
       float floatValue12 = 16.0F;
       float floatValue13 = 16.0F;
       float floatValue14 = 2.5F;
-      String string15 = "AspectDLC";
+      String string15 = "Plusclient";
       int intValue16 = (int)((float)(System.currentTimeMillis() % 2000L) / 2000.0F * 360.0F);
       float floatValue17 = value5.a(string15);
       float floatValue18 = floatValue3 + floatValue13 + floatValue14;
@@ -356,7 +356,7 @@ public class WatermarkHudRenderer extends dev.leg1tka.render.hud.HudRenderer {
       float floatValue3 = this.e.b();
       MatrixStack matrixStack4 = default1.getContext().getMatrices();
       dev.leg1tka.render.font.MsdfTextRenderer value5 = dev.leg1tka.render.font.FontCache.a("wave", 30);
-      String string6 = "AspectDLC";
+      String string6 = "Plusclient";
       int intValue7 = dev.leg1tka.api.utils.text.ColorUtils.k(90);
       int intValue8 = dev.leg1tka.api.utils.text.ColorUtils.k(180);
       int intValue9 = dev.leg1tka.api.utils.text.ColorUtils.k(270);
