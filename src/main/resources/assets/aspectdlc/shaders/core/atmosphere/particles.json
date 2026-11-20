@@ -1,0 +1,25 @@
+{
+  "vertex": "aspectdlc:core/atmosphere/particles",
+  "fragment": "aspectdlc:core/atmosphere/particles",
+  "samplers": [
+    { "name": "Sampler0" }
+  ],
+  "uniforms": [
+    { "name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "ColorModulator", "type": "float", "count": 4, "values": [1.0, 1.0, 1.0, 1.0] },
+    { "name": "Time", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Box", "type": "float", "count": 1, "values": [40.0] },
+    { "name": "Mode", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Light", "type": "float", "count": 1, "values": [1.0] },
+    { "name": "Density", "type": "float", "count": 1, "values": [1.0] },
+    { "name": "Alpha", "type": "float", "count": 1, "values": [1.0] },
+    { "name": "PartTint", "type": "float", "count": 3, "values": [1.0, 1.0, 1.0] },
+    { "name": "CamMod", "type": "float", "count": 3, "values": [0.0, 0.0, 0.0] },
+    { "name": "CamFrac", "type": "float", "count": 3, "values": [0.0, 0.0, 0.0] },
+    { "name": "CamBlock", "type": "float", "count": 3, "values": [0.0, 0.0, 0.0] },
+    { "name": "Wind", "type": "float", "count": 3, "values": [0.0, 0.0, 0.0] },
+    { "name": "HmBase", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "HmOn", "type": "float", "count": 1, "values": [1.0] }
+  ]
+}

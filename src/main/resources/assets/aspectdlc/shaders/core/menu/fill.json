@@ -1,0 +1,19 @@
+{
+  "vertex": "aspectdlc:core/button/volumetric_button",
+  "fragment": "aspectdlc:core/menu/fill",
+  "samplers": [],
+  "uniforms": [
+    { "name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "ColorModulator", "type": "float", "count": 4, "values": [1.0, 1.0, 1.0, 1.0] },
+    { "name": "Size", "type": "float", "count": 2, "values": [100.0, 16.5] },
+    { "name": "Px", "type": "float", "count": 1, "values": [0.5] },
+    { "name": "Head", "type": "float", "count": 1, "values": [16.5] },
+    { "name": "Tail", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "RadTop", "type": "float", "count": 1, "values": [3.5] },
+    { "name": "RadBot", "type": "float", "count": 1, "values": [3.5] },
+    { "name": "Feather", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Theme1", "type": "float", "count": 4, "values": [1.0, 1.0, 1.0, 1.0] },
+    { "name": "Theme2", "type": "float", "count": 4, "values": [1.0, 1.0, 1.0, 1.0] }
+  ]
+}

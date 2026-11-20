@@ -1,0 +1,26 @@
+{
+  "vertex": "aspectdlc:core/atmosphere/air",
+  "fragment": "aspectdlc:core/atmosphere/style",
+  "samplers": [
+    { "name": "Sampler0" },
+    { "name": "Sampler1" },
+    { "name": "Sampler2" },
+    { "name": "Sampler3" }
+  ],
+  "uniforms": [
+    { "name": "InvPV", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "PrevPV", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "CamDelta", "type": "float", "count": 3, "values": [0.0, 0.0, 0.0] },
+    { "name": "Texel", "type": "float", "count": 2, "values": [0.001, 0.001] },
+    { "name": "Style", "type": "float", "count": 1, "values": [1.0] },
+    { "name": "Blur", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Day", "type": "float", "count": 1, "values": [1.0] },
+    { "name": "Night", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Sunset", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "FogCol", "type": "float", "count": 3, "values": [0.7, 0.8, 1.0] },
+    { "name": "ViewDist", "type": "float", "count": 1, "values": [192.0] },
+    { "name": "Bloom", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Sharp", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Outline", "type": "float", "count": 1, "values": [0.0] }
+  ]
+}

@@ -1,0 +1,737 @@
+[
+  {
+    "original_class": "dev/leg1tka/o/gk",
+    "source_class": "dev/leg1tka/modules/combat/AttackAura",
+    "method": "onLook",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventLook;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gk",
+    "source_class": "dev/leg1tka/modules/combat/AttackAura",
+    "method": "onPlayerTick",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gk",
+    "source_class": "dev/leg1tka/modules/combat/AttackAura",
+    "method": "onTick",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gk",
+    "source_class": "dev/leg1tka/modules/combat/AttackAura",
+    "method": "dev_leg1tka_o_gk_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gl",
+    "source_class": "dev/leg1tka/modules/combat/AutoSwap",
+    "method": "onBinding",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventBinding;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gl",
+    "source_class": "dev/leg1tka/modules/combat/AutoSwap",
+    "method": "onInput",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventMoveInput;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gl",
+    "source_class": "dev/leg1tka/modules/combat/AutoSwap",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gl",
+    "source_class": "dev/leg1tka/modules/combat/AutoSwap",
+    "method": "dev_leg1tka_o_gl_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gm",
+    "source_class": "dev/leg1tka/modules/combat/AutoTotem",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gm",
+    "source_class": "dev/leg1tka/modules/combat/AutoTotem",
+    "method": "onPacket",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gm",
+    "source_class": "dev/leg1tka/modules/combat/AutoTotem",
+    "method": "dev_leg1tka_o_gm_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gn",
+    "source_class": "dev/leg1tka/modules/combat/AutoTrap",
+    "method": "onBinding",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventBinding;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gn",
+    "source_class": "dev/leg1tka/modules/combat/AutoTrap",
+    "method": "onGameUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventGameUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gn",
+    "source_class": "dev/leg1tka/modules/combat/AutoTrap",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gn",
+    "source_class": "dev/leg1tka/modules/combat/AutoTrap",
+    "method": "dev_leg1tka_o_gn_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/go",
+    "source_class": "dev/leg1tka/modules/combat/BackTrackOld",
+    "method": "onPacket",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/go",
+    "source_class": "dev/leg1tka/modules/combat/BackTrackOld",
+    "method": "dev_leg1tka_o_go_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gp",
+    "source_class": "dev/leg1tka/modules/movement/ElytraMotion",
+    "method": "onMove",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventMove;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gp",
+    "source_class": "dev/leg1tka/modules/movement/ElytraMotion",
+    "method": "dev_leg1tka_o_gp_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gq",
+    "source_class": "dev/leg1tka/modules/combat/ElytraTarget",
+    "method": "onRender3D",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/Event3DRender;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gq",
+    "source_class": "dev/leg1tka/modules/combat/ElytraTarget",
+    "method": "onRender2D",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventRender$Default;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gq",
+    "source_class": "dev/leg1tka/modules/combat/ElytraTarget",
+    "method": "dev_leg1tka_o_gq_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gr",
+    "source_class": "dev/leg1tka/modules/combat/FTHelper",
+    "method": "onKey",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventBinding;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gr",
+    "source_class": "dev/leg1tka/modules/combat/FTHelper",
+    "method": "onPacket",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gr",
+    "source_class": "dev/leg1tka/modules/combat/FTHelper",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gr",
+    "source_class": "dev/leg1tka/modules/combat/FTHelper",
+    "method": "dev_leg1tka_o_gr_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gt",
+    "source_class": "dev/leg1tka/modules/combat/ItemRelease",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gt",
+    "source_class": "dev/leg1tka/modules/combat/ItemRelease",
+    "method": "dev_leg1tka_o_gt_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gu",
+    "source_class": "dev/leg1tka/modules/combat/MaceExploit",
+    "method": "onPacket",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gu",
+    "source_class": "dev/leg1tka/modules/combat/MaceExploit",
+    "method": "onAttack",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventAttackEntity;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gu",
+    "source_class": "dev/leg1tka/modules/combat/MaceExploit",
+    "method": "dev_leg1tka_o_gu_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gw",
+    "source_class": "dev/leg1tka/modules/combat/MaxDamage",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gw",
+    "source_class": "dev/leg1tka/modules/combat/MaxDamage",
+    "method": "dev_leg1tka_o_gw_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gx",
+    "source_class": "dev/leg1tka/modules/combat/NoControllerWeb",
+    "method": "onBlockCollide",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventBlockCollide;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gx",
+    "source_class": "dev/leg1tka/modules/combat/NoControllerWeb",
+    "method": "dev_leg1tka_o_gx_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gy",
+    "source_class": "dev/leg1tka/modules/combat/Velocity",
+    "method": "onPacket",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gy",
+    "source_class": "dev/leg1tka/modules/combat/Velocity",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gy",
+    "source_class": "dev/leg1tka/modules/combat/Velocity",
+    "method": "dev_leg1tka_o_gy_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gz",
+    "source_class": "dev/leg1tka/modules/combat/Criticals",
+    "method": "onAttack",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventAttackEntity;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/gz",
+    "source_class": "dev/leg1tka/modules/combat/Criticals",
+    "method": "dev_leg1tka_o_gz_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ha",
+    "source_class": "dev/leg1tka/modules/combat/PacketMace",
+    "method": "onEvent",
+    "descriptor": "(Ldev/leg1tka/api/events/Event;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ha",
+    "source_class": "dev/leg1tka/modules/combat/PacketMace",
+    "method": "dev_leg1tka_o_ha_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/hc",
+    "source_class": "dev/leg1tka/modules/combat/TriggerBot",
+    "method": "onMoveInput",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventMoveInput;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/hc",
+    "source_class": "dev/leg1tka/modules/combat/TriggerBot",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/hc",
+    "source_class": "dev/leg1tka/modules/combat/TriggerBot",
+    "method": "dev_leg1tka_o_hc_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/hp",
+    "source_class": "dev/leg1tka/rotation/NeuralRotationController",
+    "method": "step3",
+    "descriptor": "(Ldev/leg1tka/o/cx;Lnet/minecraft/class_1309;FFFILdev/leg1tka/o/hp$a;)Z",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/hp",
+    "source_class": "dev/leg1tka/rotation/NeuralRotationController",
+    "method": "dev_leg1tka_o_hp_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ia",
+    "source_class": "dev/leg1tka/modules/misc/AutoAccept",
+    "method": "onEvent",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ia",
+    "source_class": "dev/leg1tka/modules/misc/AutoAccept",
+    "method": "dev_leg1tka_o_ia_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ie",
+    "source_class": "dev/leg1tka/modules/misc/AutoLeave",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ie",
+    "source_class": "dev/leg1tka/modules/misc/AutoLeave",
+    "method": "dev_leg1tka_o_ie_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ig",
+    "source_class": "dev/leg1tka/modules/misc/ClickPearl",
+    "method": "onKey",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventBinding;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ig",
+    "source_class": "dev/leg1tka/modules/misc/ClickPearl",
+    "method": "onPlayerTick",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ig",
+    "source_class": "dev/leg1tka/modules/misc/ClickPearl",
+    "method": "onPlayerSync",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPlayerSync;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ig",
+    "source_class": "dev/leg1tka/modules/misc/ClickPearl",
+    "method": "dev_leg1tka_o_ig_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ii",
+    "source_class": "dev/leg1tka/modules/misc/DeathCoord",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ii",
+    "source_class": "dev/leg1tka/modules/misc/DeathCoord",
+    "method": "dev_leg1tka_o_ii_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ij",
+    "source_class": "dev/leg1tka/modules/misc/ElytraHelper",
+    "method": "onKey",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventBinding;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ij",
+    "source_class": "dev/leg1tka/modules/misc/ElytraHelper",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ij",
+    "source_class": "dev/leg1tka/modules/misc/ElytraHelper",
+    "method": "dev_leg1tka_o_ij_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/il",
+    "source_class": "dev/leg1tka/modules/misc/LayerCooldown",
+    "method": "onPacket",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/il",
+    "source_class": "dev/leg1tka/modules/misc/LayerCooldown",
+    "method": "onRender3D",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/Event3DRender;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/il",
+    "source_class": "dev/leg1tka/modules/misc/LayerCooldown",
+    "method": "onRender2D",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventRender$Default;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/il",
+    "source_class": "dev/leg1tka/modules/misc/LayerCooldown",
+    "method": "dev_leg1tka_o_il_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/im",
+    "source_class": "dev/leg1tka/modules/misc/LeaveTracker",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/im",
+    "source_class": "dev/leg1tka/modules/misc/LeaveTracker",
+    "method": "dev_leg1tka_o_im_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/io",
+    "source_class": "dev/leg1tka/modules/misc/NeuroRecorder",
+    "method": "onAttack",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventAttackEntity;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/io",
+    "source_class": "dev/leg1tka/modules/misc/NeuroRecorder",
+    "method": "onTickEnd",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdatePost;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/io",
+    "source_class": "dev/leg1tka/modules/misc/NeuroRecorder",
+    "method": "dev_leg1tka_o_io_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ip",
+    "source_class": "dev/leg1tka/modules/misc/PotionTracker",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/ip",
+    "source_class": "dev/leg1tka/modules/misc/PotionTracker",
+    "method": "dev_leg1tka_o_ip_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/jr",
+    "source_class": "dev/leg1tka/modules/player/ExpThrower",
+    "method": "onPacket",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPacket;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/jr",
+    "source_class": "dev/leg1tka/modules/player/ExpThrower",
+    "method": "onUpdate",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventUpdate;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/jr",
+    "source_class": "dev/leg1tka/modules/player/ExpThrower",
+    "method": "onSync",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPlayerSync;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/jr",
+    "source_class": "dev/leg1tka/modules/player/ExpThrower",
+    "method": "onSyncEnd",
+    "descriptor": "(Ldev/leg1tka/api/events/implement/EventPlayerSyncEnd;)V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "dev/leg1tka/o/jr",
+    "source_class": "dev/leg1tka/modules/player/ExpThrower",
+    "method": "dev_leg1tka_o_jr_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "initialize",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "request",
+    "descriptor": "()Ljava/lang/String;",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gk_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gl_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gm_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gn_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_go_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gp_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gq_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gr_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gt_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gu_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gw_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gx_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gy_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_gz_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_ha_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_hc_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_hp_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_ia_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_ie_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_ig_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_ii_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_ij_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_il_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_im_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_io_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_ip_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  },
+  {
+    "original_class": "we/are/nuym/initializer/NuymMain",
+    "source_class": "we/are/nuym/initializer/NuymMain",
+    "method": "dev_leg1tka_o_jr_initializer",
+    "descriptor": "()V",
+    "status": "original native interface; implementation retained in supplied protected binaries, not reconstructed in Java"
+  }
+]

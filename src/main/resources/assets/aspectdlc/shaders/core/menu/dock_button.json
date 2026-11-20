@@ -1,0 +1,20 @@
+{
+  "vertex": "aspectdlc:core/button/volumetric_button",
+  "fragment": "aspectdlc:core/menu/dock_button",
+  "samplers": [],
+  "uniforms": [
+    { "name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0] },
+    { "name": "ColorModulator", "type": "float", "count": 4, "values": [1.0, 1.0, 1.0, 1.0] },
+    { "name": "Size", "type": "float", "count": 2, "values": [30.0, 30.0] },
+    { "name": "Radius", "type": "float", "count": 1, "values": [9.0] },
+    { "name": "Px", "type": "float", "count": 1, "values": [0.5] },
+    { "name": "Hover", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Press", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Time", "type": "float", "count": 1, "values": [0.0] },
+    { "name": "Mouse", "type": "float", "count": 2, "values": [0.5, 0.5] },
+    { "name": "Theme1", "type": "float", "count": 4, "values": [0.45, 0.35, 1.0, 1.0] },
+    { "name": "Theme2", "type": "float", "count": 4, "values": [1.0, 0.35, 0.65, 1.0] },
+    { "name": "Base", "type": "float", "count": 4, "values": [0.07, 0.07, 0.08, 1.0] }
+  ]
+}
