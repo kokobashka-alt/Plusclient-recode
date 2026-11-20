@@ -70,7 +70,7 @@ public class TargetESP extends Module {
       "Кристаллы",
       "Целестиал",
       "Призраки",
-      "Аспект"
+      "Плюс"
    );
    private final NumberSetting l = new NumberSetting("Размер", 1.15F, 0.6F, 2.5F, 0.05F);
    private final NumberSetting m = new NumberSetting("Радиус кольца", 0.5F, 0.3F, 1.5F, 0.05F);
