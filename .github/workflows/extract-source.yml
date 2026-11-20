@@ -1,50 +1,85 @@
-name: Extract PlusClient Source
+
+name: Import PlusClient Source
 
 on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  extract:
+  import:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Install 7-Zip
         run: |
           sudo apt-get update
           sudo apt-get install -y p7zip-full
 
       - name: Download src.7z
+        shell: bash
         run: |
-          set -e
+          set -euo pipefail
 
           API="https://api.github.com/repos/kokobashka-alt/Plusclient-recode/releases/tags/1.0"
 
           URL=$(curl -fsSL "$API" | jq -r \
             '.assets[] | select(.name == "src.7z") | .browser_download_url' | head -n 1)
 
-          if [ -z "$URL" ]; then
-            echo "ERROR: src.7z not found in Release 1.0"
+          if [ -z "$URL" ] || [ "$URL" = "null" ]; then
+            echo "src.7z not found"
             exit 1
           fi
 
           curl -fL "$URL" -o src.7z
-          test -s src.7z
 
-      - name: Extract source
+      - name: Extract archive
         run: |
-          mkdir -p extracted
+          mkdir extracted
           7z x src.7z -oextracted -y
-          echo "Extraction completed"
-          find extracted -maxdepth 3 -type f | head -100
 
-      - name: Upload extracted source
-        uses: actions/upload-artifact@v4
-        with:
-          name: PlusClient-Extracted-Source
-          path: extracted/
-          if-no-files-found: error
-          retention-days: 7
+      - name: Find source directory
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mapfile -t DIRS < <(find extracted -type d -name src)
+
+          if [ "${#DIRS[@]}" -ne 1 ]; then
+            echo "Expected exactly one src directory"
+            find extracted -maxdepth 5 -print
+            exit 1
+          fi
+
+          echo "SOURCE_DIR=${DIRS[0]}" >> "$GITHUB_ENV"
+
+      - name: Copy source into repository
+        run: |
+          set -e
+
+          rm -rf ./src
+          mkdir -p ./src
+          cp -a "$SOURCE_DIR/." ./src/
+
+      - name: Commit and push
+        shell: bash
+        run: |
+          set -e
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A src/
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Import PlusClient source from release"
+          git push
           
