@@ -1,0 +1,37 @@
+{
+  "libraries": [
+    {
+      "file": "protection.dll",
+      "sha256": "1fdb3e45fe403fc18ab1bcc474763947990bca81946aed4f16cbd0797ab07fa0",
+      "role": "Packed JNI implementations and dynamic registration",
+      "executed_during_recovery": false
+    },
+    {
+      "file": "runtime.dll",
+      "sha256": "5c5873eb1141b8f578cd8fbea6c8ec79a83fc999e9112c07125fb55888ee032a",
+      "role": "Original protected JVM host component",
+      "executed_during_recovery": false
+    },
+    {
+      "file": "vm-host.exe",
+      "sha256": "74aa0566ae4035bb735b079ae397c97800e13ee49b25c1eae54316ee7864eb65",
+      "role": "Original JVM launcher and request-buffer integration",
+      "executed_during_recovery": false
+    },
+    {
+      "file": "VMProtectSDK64.dll",
+      "sha256": "ec3235136a4daee2a6f72c0f2994a8365ca8427c8068d068130b74c9fa64cd02",
+      "role": "SDK dependency supplied with the original runtime",
+      "executed_during_recovery": false
+    }
+  ],
+  "optional_missing_library": "aspectdlc_crypto",
+  "original_runtime_validation": "not executed; requires an isolated environment and original reference service",
+  "original_host_classfile_major": 71,
+  "original_host_java": 27,
+  "original_jimage_version": "1.1",
+  "source_runtime_java": 21,
+  "minecraft": "1.21.4",
+  "requires_complete_original_runtime": true,
+  "original_launcher_configs": "config/original-native-launch"
+}
