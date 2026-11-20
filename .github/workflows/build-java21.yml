@@ -21,31 +21,15 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Setup Gradle
+      - name: Setup Gradle 9.2.0
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.10.2'
+          gradle-version: '9.2.0'
 
-      - name: Verify project
-        shell: bash
+      - name: Check environment
         run: |
-          set -euo pipefail
-
-          echo "Java version:"
           java -version
-
-          echo "Gradle files:"
-          ls -la
-
-          if [ ! -f build.gradle ] && [ ! -f build.gradle.kts ]; then
-            echo "ERROR: build.gradle not found"
-            exit 1
-          fi
-
-          if [ ! -f settings.gradle ] && [ ! -f settings.gradle.kts ]; then
-            echo "ERROR: settings.gradle not found"
-            exit 1
-          fi
+          gradle --version
 
       - name: Build PlusClient
         run: |
@@ -69,7 +53,6 @@ jobs:
             exit 1
           fi
 
-          echo "Build output:"
           ls -lh release/
 
       - name: Upload JAR
