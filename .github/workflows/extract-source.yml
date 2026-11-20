@@ -1,5 +1,5 @@
 
-name: Import PlusClient Source
+name: Extract Default Gradle
 
 on:
   workflow_dispatch:
@@ -8,11 +8,11 @@ permissions:
   contents: write
 
 jobs:
-  import:
+  extract:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install 7-Zip
@@ -20,66 +20,45 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y p7zip-full
 
-      - name: Download src.7z
-        shell: bash
+      - name: Download default.gradle.7z
         run: |
           set -euo pipefail
 
           API="https://api.github.com/repos/kokobashka-alt/Plusclient-recode/releases/tags/1.0"
 
           URL=$(curl -fsSL "$API" | jq -r \
-            '.assets[] | select(.name == "src.7z") | .browser_download_url' | head -n 1)
+            '.assets[] | select(.name == "default.gradle.7z") | .browser_download_url' | head -n 1)
 
           if [ -z "$URL" ] || [ "$URL" = "null" ]; then
-            echo "src.7z not found"
+            echo "Archive not found"
             exit 1
           fi
 
-          curl -fL "$URL" -o src.7z
+          curl -fL "$URL" -o default.gradle.7z
 
       - name: Extract archive
         run: |
           mkdir extracted
-          7z x src.7z -oextracted -y
+          7z x default.gradle.7z -oextracted -y
+          find extracted -maxdepth 5 -print
 
-      - name: Find source directory
-        shell: bash
+      - name: Copy Gradle files
         run: |
-          set -euo pipefail
+          cp -a extracted/. .
+          rm -rf extracted default.gradle.7z
 
-          mapfile -t DIRS < <(find extracted -type d -name src)
-
-          if [ "${#DIRS[@]}" -ne 1 ]; then
-            echo "Expected exactly one src directory"
-            find extracted -maxdepth 5 -print
-            exit 1
-          fi
-
-          echo "SOURCE_DIR=${DIRS[0]}" >> "$GITHUB_ENV"
-
-      - name: Copy source into repository
+      - name: Commit to GitHub
         run: |
-          set -e
-
-          rm -rf ./src
-          mkdir -p ./src
-          cp -a "$SOURCE_DIR/." ./src/
-
-      - name: Commit and push
-        shell: bash
-        run: |
-          set -e
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -A src/
+          git add -A
 
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "No changes"
             exit 0
           fi
 
-          git commit -m "Import PlusClient source from release"
+          git commit -m "Import default Gradle configuration"
           git push
           
