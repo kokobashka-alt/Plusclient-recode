@@ -1,0 +1,50 @@
+name: Extract PlusClient Source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Download src.7z
+        run: |
+          set -e
+
+          API="https://api.github.com/repos/kokobashka-alt/Plusclient-recode/releases/tags/1.0"
+
+          URL=$(curl -fsSL "$API" | jq -r \
+            '.assets[] | select(.name == "src.7z") | .browser_download_url' | head -n 1)
+
+          if [ -z "$URL" ]; then
+            echo "ERROR: src.7z not found in Release 1.0"
+            exit 1
+          fi
+
+          curl -fL "$URL" -o src.7z
+          test -s src.7z
+
+      - name: Extract source
+        run: |
+          mkdir -p extracted
+          7z x src.7z -oextracted -y
+          echo "Extraction completed"
+          find extracted -maxdepth 3 -type f | head -100
+
+      - name: Upload extracted source
+        uses: actions/upload-artifact@v4
+        with:
+          name: PlusClient-Extracted-Source
+          path: extracted/
+          if-no-files-found: error
+          retention-days: 7
+          
