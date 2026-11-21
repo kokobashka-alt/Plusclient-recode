@@ -28,7 +28,7 @@ public class CommandStorage {
    }
 
    private void e() {
-      this.a(new dev.leg1tka.commands.FriendCommand(), new dev.leg1tka.commands.ConfigCommand(), new dev.leg1tka.commands.MacroCommand(), new dev.leg1tka.commands.ConnectCommand(), new dev.leg1tka.commands.WardenCommand(), new dev.leg1tka.commands.BlockEspCommand(), new dev.leg1tka.commands.NukerCommand(), new dev.leg1tka.commands.NukerCommand("nuk"), new dev.leg1tka.commands.WaypointCommand(), new dev.leg1tka.commands.BindCommand(), new dev.leg1tka.commands.StaffCommand(), new dev.leg1tka.commands.VerticalClipCommand(), new dev.leg1tka.commands.ProxyCommand(), new dev.leg1tka.commands.NeuroCommand());
+      this.a(new dev.leg1tka.commands.FriendCommand(), new dev.leg1tka.commands.HolyWorldCommand(), new dev.leg1tka.commands.ConfigCommand(), new dev.leg1tka.commands.MacroCommand(), new dev.leg1tka.commands.ConnectCommand(), new dev.leg1tka.commands.WardenCommand(), new dev.leg1tka.commands.BlockEspCommand(), new dev.leg1tka.commands.NukerCommand(), new dev.leg1tka.commands.NukerCommand("nuk"), new dev.leg1tka.commands.WaypointCommand(), new dev.leg1tka.commands.BindCommand(), new dev.leg1tka.commands.StaffCommand(), new dev.leg1tka.commands.VerticalClipCommand(), new dev.leg1tka.commands.ProxyCommand(), new dev.leg1tka.commands.NeuroCommand());
    }
 
    public CommandSource a() {
