@@ -31,7 +31,7 @@ jobs:
           java -version
           gradle --version
 
-            - name: Build PlusClient
+      - name: Build PlusClient
         run: |
           gradle clean build --no-daemon --stacktrace --info
 
@@ -39,7 +39,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           mkdir -p release
 
           find . -type f \
