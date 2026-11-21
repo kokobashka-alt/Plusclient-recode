@@ -1,5 +1,5 @@
 
-name: Check Mappings
+name: Extract Mappings
 
 on:
   workflow_dispatch:
@@ -8,34 +8,44 @@ permissions:
   contents: write
 
 jobs:
-  check:
+  extract:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check mappings folder
+      - name: Extract mappings.zip
         run: |
           set -euo pipefail
 
-          echo "Repository root:"
-          ls -lah
-
-          if [ ! -d "mappings" ]; then
-            echo "ERROR: mappings folder not found in repository root"
+          if [ ! -f "mappings.zip" ]; then
+            echo "ERROR: mappings.zip not found"
             exit 1
           fi
 
-          echo "Mappings contents:"
-          find mappings -maxdepth 3 -type f
+          mkdir -p extracted
+          unzip -o mappings.zip -d extracted
 
-          if [ ! -f "mappings/original-abi.json" ]; then
-            echo "ERROR: mappings/original-abi.json not found"
+          echo "Archive contents:"
+          find extracted -maxdepth 4 -type f
+
+          source_file="$(find extracted -type f -name original-abi.json -print -quit)"
+
+          if [ -z "$source_file" ]; then
+            echo "ERROR: original-abi.json not found inside mappings.zip"
             exit 1
           fi
 
-          echo "SUCCESS: original-abi.json found"
+          source_dir="$(dirname "$source_file")"
+
+          rm -rf mappings
+          mkdir -p mappings
+          cp -a "$source_dir/." mappings/
+
+          test -f mappings/original-abi.json
+
+          echo "Mappings extracted successfully"
 
       - name: Commit mappings
         run: |
@@ -47,9 +57,9 @@ jobs:
           git add mappings/
 
           if git diff --cached --quiet; then
-            echo "Mappings already committed"
+            echo "No changes to commit"
           else
-            git commit -m "Add mappings files"
+            git commit -m "Extract mappings archive"
             git push
           fi
           
