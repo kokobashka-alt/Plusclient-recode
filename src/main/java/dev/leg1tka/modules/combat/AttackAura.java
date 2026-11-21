@@ -109,7 +109,7 @@ public class AttackAura extends Module {
          }
       }
    };
-   public final ModeSetting e = new ModeSetting("Тип", "Matrix/Fast", "Matrix/Fast", "Shard", "SpookyTime", "NoRotate", "WhiteRise", "Assist") {
+   public final ModeSetting e = new ModeSetting("Тип", "Matrix/Fast", "Matrix/Fast", "Shard", "SpookyTime", "NoRotate", "WhiteRise", "HolyWorld", "Assist") {
       @Override
       public void a(String string1) {
          if ("SC3".equals(string1) || "SuckyTime".equals(string1)) {
@@ -408,6 +408,7 @@ public class AttackAura extends Module {
    final dev.leg1tka.rotation.SmoothRotationStrategy bH = new dev.leg1tka.rotation.SmoothRotationStrategy();
    final dev.leg1tka.rotation.AdaptiveRotationStrategy bI = new dev.leg1tka.rotation.AdaptiveRotationStrategy();
    private final dev.leg1tka.rotation.WhiteRiseRotationStrategy bJ = new dev.leg1tka.rotation.WhiteRiseRotationStrategy(this);
+   private final dev.leg1tka.rotation.holyworld.HolyWorldRotationStrategy holyWorld = new dev.leg1tka.rotation.holyworld.HolyWorldRotationStrategy();
    private final dev.leg1tka.api.utils.time.Stopwatch bK = new dev.leg1tka.api.utils.time.Stopwatch();
    private TpsSync bL;
    private long bM = 0L;
@@ -1197,7 +1198,9 @@ public class AttackAura extends Module {
                return;
             }
 
-            if (this.e.b("WhiteRise")) {
+            if (this.e.b("HolyWorld")) {
+               object1 = this.holyWorld;
+            } else if (this.e.b("WhiteRise")) {
                object1 = this.bJ;
             } else if (this.e.b("NoRotate")) {
                object1 = new dev.leg1tka.rotation.RotationStrategy() {
