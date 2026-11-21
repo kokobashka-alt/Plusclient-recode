@@ -1,5 +1,5 @@
 
-name: Import PlusClient Libraries
+name: Extract Mappings
 
 on:
   workflow_dispatch:
@@ -8,92 +8,85 @@ permissions:
   contents: write
 
 jobs:
-  import:
+  extract:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download libs.zip
+      - name: Install 7zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Download mappings archive
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p archive
+          gh release download 1.0 \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "mappings.*" \
+            --dir archive
+
+          ls -lh archive/
+
+      - name: Extract mappings
         shell: bash
         run: |
           set -euo pipefail
 
-          API="https://api.github.com/repos/kokobashka-alt/Plusclient-recode/releases/tags/1.0"
+          mkdir -p extracted
 
-          URL=$(curl -fsSL "$API" | jq -r \
-            '.assets[] | select(.name == "libs.zip") | .browser_download_url' | head -n 1)
+          archive="$(find archive -maxdepth 1 -type f | head -n 1)"
 
-          if [ -z "$URL" ] || [ "$URL" = "null" ]; then
-            echo "ERROR: libs.zip not found in Release 1.0"
+          if [ -z "$archive" ]; then
+            echo "ERROR: mappings archive not found"
             exit 1
           fi
 
-          curl -fL "$URL" -o libs.zip
-          test -s libs.zip
+          case "$archive" in
+            *.zip)
+              unzip -o "$archive" -d extracted
+              ;;
+            *.7z)
+              7z x "$archive" -oextracted -y
+              ;;
+            *)
+              echo "ERROR: Unsupported archive format"
+              exit 1
+              ;;
+          esac
 
-      - name: Verify ZIP
-        run: |
-          unzip -t libs.zip
+          source_dir="$(find extracted -type f -name original-abi.json -printf '%h\n' | head -n 1)"
 
-      - name: Extract libraries
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          mkdir extracted
-          unzip -q libs.zip -d extracted
-
-          echo "Archive structure:"
-          find extracted -maxdepth 5 -print
-
-      - name: Locate libs directory
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          mapfile -t DIRS < <(find extracted -type d -name libs)
-
-          if [ "${#DIRS[@]}" -ne 1 ]; then
-            echo "ERROR: Expected exactly one libs directory"
-            find extracted -maxdepth 5 -print
+          if [ -z "$source_dir" ]; then
+            echo "ERROR: original-abi.json not found in archive"
+            find extracted -maxdepth 4 -type f
             exit 1
           fi
 
-          echo "LIBS_DIR=${DIRS[0]}" >> "$GITHUB_ENV"
+          mkdir -p mappings
+          cp -a "$source_dir/." mappings/
 
-      - name: Copy libraries
+          test -f mappings/original-abi.json
+
+          echo "Mappings extracted successfully:"
+          find mappings -maxdepth 2 -type f
+
+      - name: Commit mappings
         run: |
-          set -euo pipefail
-
-          rm -rf libs
-          mkdir -p libs
-          cp -a "$LIBS_DIR/." libs/
-
-          echo "Imported libraries:"
-          find libs -maxdepth 4 -type f -print
-
-          if [ ! -f libs/fabric-loader-0.19.2.jar ]; then
-            echo "ERROR: fabric-loader-0.19.2.jar is missing"
-            exit 1
-          fi
-
-      - name: Commit and push
-        shell: bash
-        run: |
-          set -euo pipefail
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -A libs/
+          git add mappings/
 
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "No mappings changes"
             exit 0
           fi
 
-          git commit -m "Import PlusClient libraries"
+          git commit -m "Import mappings files"
           git push
           
