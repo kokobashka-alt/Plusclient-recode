@@ -31,9 +31,9 @@ jobs:
           java -version
           gradle --version
 
-      - name: Build PlusClient
+            - name: Build PlusClient
         run: |
-          gradle clean build --no-daemon --stacktrace
+          gradle clean build --no-daemon --stacktrace --info
 
       - name: Collect JAR files
         shell: bash
