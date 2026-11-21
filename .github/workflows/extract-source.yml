@@ -1,5 +1,5 @@
 
-name: Extract Mappings
+name: Check Mappings
 
 on:
   workflow_dispatch:
@@ -8,81 +8,36 @@ permissions:
   contents: write
 
 jobs:
-  extract:
+  check:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download Release 1.0 assets
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check mappings folder
         run: |
           set -euo pipefail
 
-          mkdir -p archive
+          echo "Repository root:"
+          ls -lah
 
-          gh release download 1.0 \
-            --repo "$GITHUB_REPOSITORY" \
-            --dir archive
-
-          echo "Downloaded files:"
-          ls -lah archive/
-
-      - name: Find and extract mappings ZIP
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          mkdir -p extracted
-
-          found=false
-
-          for file in archive/*.zip; do
-            [ -f "$file" ] || continue
-
-            echo "Checking: $file"
-
-            if unzip -Z1 "$file" | grep -qE '(^|/)original-abi\.json$'; then
-              echo "Mappings archive found: $file"
-              unzip -o "$file" -d extracted
-              found=true
-              break
-            fi
-          done
-
-          if [ "$found" != true ]; then
-            echo "ERROR: No ZIP containing original-abi.json found"
-            echo "Archive contents:"
-            for file in archive/*.zip; do
-              [ -f "$file" ] || continue
-              echo "---- $file ----"
-              unzip -Z1 "$file"
-            done
+          if [ ! -d "mappings" ]; then
+            echo "ERROR: mappings folder not found in repository root"
             exit 1
           fi
 
-          source_file="$(find extracted -type f -name original-abi.json -print -quit)"
+          echo "Mappings contents:"
+          find mappings -maxdepth 3 -type f
 
-          if [ -z "$source_file" ]; then
-            echo "ERROR: original-abi.json extraction failed"
+          if [ ! -f "mappings/original-abi.json" ]; then
+            echo "ERROR: mappings/original-abi.json not found"
             exit 1
           fi
 
-          source_dir="$(dirname "$source_file")"
+          echo "SUCCESS: original-abi.json found"
 
-          rm -rf mappings
-          mkdir -p mappings
-
-          cp -a "$source_dir/." mappings/
-
-          test -f mappings/original-abi.json
-
-          echo "Mappings files:"
-          find mappings -type f
-
-      - name: Commit and push mappings
+      - name: Commit mappings
         run: |
           set -euo pipefail
 
@@ -92,10 +47,9 @@ jobs:
           git add mappings/
 
           if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
+            echo "Mappings already committed"
+          else
+            git commit -m "Add mappings files"
+            git push
           fi
-
-          git commit -m "Import mappings"
-          git push
           
