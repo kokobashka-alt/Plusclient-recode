@@ -1,0 +1,47 @@
+
+name: Unpack Holyworld
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "holyworld.7z"
+      - ".github/workflows/unpack-holyworld.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install 7-Zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full
+
+      - name: Check archive
+        run: |
+          test -f holyworld.7z || {
+            echo "holyworld.7z not found in repository root"
+            exit 1
+          }
+
+      - name: Extract archive
+        run: |
+          mkdir -p src/main/java/dev/leg1tka/rotation
+          7z x holyworld.7z \
+            -o"src/main/java/dev/leg1tka/rotation" \
+            -y
+
+      - name: Upload extracted files
+        uses: actions/upload-artifact@v4
+        with:
+          name: holyworld-extracted
+          path: src/main/java/dev/leg1tka/rotation/
+          if-no-files-found: error
+          
